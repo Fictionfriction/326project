@@ -13,13 +13,24 @@ class Player:
         self.health = 3
     
     def player_hurt(self):
+        """
+        Player will take damage if they take a wrong turn in the maze
+        """
         self.health = self.health - 1
     
     def player_health(self):
+        """
+        Player will gain health depending on if they meet a certain condition
+        """
         self.health = self.health + 1
         
     def check_name(self):
-        if len(self.name) > 3:
+        """
+        Checks if the name the player uses is 3 characters, if not game will 
+        not run
+        """
+        if len(self.name) != 3:
             return(print("Please make sure name is 3 characters long!"))
         else:
             return self.name
+        
