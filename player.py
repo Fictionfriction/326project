@@ -33,4 +33,11 @@ class Player:
             return(print("Please make sure name is 3 characters long!"))
         else:
             return self.name
+
+filename = 'directions.txt'
+
+class Maze():
+    def __init__(self):
+        self.directions = filename
+            
         
