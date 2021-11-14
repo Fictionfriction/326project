@@ -45,7 +45,8 @@ class Maze():
         counts the amount of turns made, as well asks the player which direction it wants to go
         """
         self.count = count
-        user_movement = input("Which ")
+        user_movement = input("Which way would you like to go?").upper()
+        if user_movement == self.directions
         
     
             
