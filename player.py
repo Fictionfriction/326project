@@ -24,6 +24,12 @@ class Player:
         """
         self.health = self.health + 1
         
+    def check_health(self):
+        """Check if player has lost all of their health
+        """
+        if self.health == 0:
+            print("You're out of health!")
+            exit()
     def check_name(self):
         """
         Checks if the name the player uses is 3 characters, if not game will 
@@ -59,6 +65,7 @@ class Maze():
         """
         if len(directions) == 1:
             print("You've reached the end!")
+            exit()
         elif path.upper() == directions[0]:
             del directions[0]
         else:
