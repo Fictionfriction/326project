@@ -39,36 +39,31 @@ filename = 'directions.txt'
 directions = ['LEFT','RIGHT','FORWARD','RIGHT','FORWARD','RIGHT','LEFT','LEFT',
               'RIGHT','LEFT','END']
 
-def check_path(path):
-    """Checks whether the user chose the right path or not in the maze
-
-    Args:
-        path ([string]): the direction the user chose
-    """
-    if len(directions) == 1:
-        print("You've reached the end!")
-    elif path.upper() == directions[0]:
-        del directions[0]
-    else:
-        print("Wrong way!")
-        Player.player_hurt()
         
 class Maze():
-    def __init__(self, directions):
-        self.directions = directions
+    def __init__(self, instance):
+        self.instance = instance
       
     def turns(self,count):
         """
         counts the amount of turns made, as well asks the player which direction it wants to go
         """
         self.count = count
-        user_movement = input("Which way would you like to go?").upper()
-        if user_movement == self.directions
+        user_movement = input(f"Hello {self.name},  Which way would you like to go?").upper()
         
-    
-        
+    def check_path(path):
+        """Checks whether the user chose the right path or not in the maze
 
-
+        Args:
+            path ([string]): the direction the user chose
+        """
+        if len(directions) == 1:
+            print("You've reached the end!")
+        elif path.upper() == directions[0]:
+            del directions[0]
+        else:
+            print("Wrong way!")
+            instance.player_hurt()
 
         
 
