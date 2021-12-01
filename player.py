@@ -55,15 +55,14 @@ def check_path(path):
         
 class Maze():
     def __init__(self):
-        self.directions = filename
+        
       
     def turns(self,count):
         """
         counts the amount of turns made, as well asks the player which direction it wants to go
         """
         self.count = count
-        user_movement = input("Which way would you like to go?").upper()
-        if user_movement == self.directions
+        user_movement = input(f"Hello {self.name},  Which way would you like to go?").upper()
 
         
 
