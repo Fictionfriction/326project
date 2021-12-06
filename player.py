@@ -17,7 +17,7 @@ class Player:
         Player will take damage if they take a wrong turn in the maze
         """
         self.health = self.health - 1
-        instance.check_health()
+        self.check_health()
         print(f"you now have {self.health} health left!")
     
     def player_health(self):
@@ -51,33 +51,38 @@ directions = ['LEFT','RIGHT','FORWARD','RIGHT','FORWARD','RIGHT','LEFT','LEFT',
 class Maze():
     def __init__(self, instance):
         self.instance = instance
+        self.score = 0
       
-    def turns(self,count):
+    def turns(self):
         """
         asks the player which direction it wants to go
         """
-        # will likely remove high score
-        self.count = count
         while True:
-            user_movement = input(f"Hello {self.name},  Which way would you like to go?").upper()
-            instance.check_path(user_movement)
+            user_movement = input(f"Hello {self.instance.name}, which way would you like to go? ").upper()
+            self.check_path(user_movement)
         
-    def check_path(path):
+    def check_path(self, path):
         """Checks whether the user chose the right path or not in the maze
 
         Args:
             path ([string]): the direction the user chose
         """
-        if len(directions) == 1:
-            print("You've reached the end!")
+        if len(directions) == 2:
+            print(f"You've reached the end! Score: {self.score}")
             exit()
         elif path.upper() == directions[0]:
             del directions[0]
+            self.score+=1
         else:
             print("Wrong way!")
-            instance.player_hurt()
+            self.score-=1
+            self.instance.player_hurt()
+            
 
-        
+player1 = Player('Bob')
+maze1 = Maze(player1)
+maze1.turns()
+ 
 
         
     
