@@ -11,6 +11,7 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.health = 3
+        self.help = 3
     
     def player_hurt(self):
         """
@@ -44,6 +45,7 @@ class Player:
 
 filename = 'directions.txt'
 
+#Maybe create a function that is generating random size list and directions
 directions = ['LEFT','RIGHT','FORWARD','RIGHT','FORWARD','RIGHT','LEFT','LEFT',
               'RIGHT','LEFT','END']
 
@@ -73,10 +75,24 @@ class Maze():
         elif path.upper() == directions[0]:
             del directions[0]
             self.score+=1
+            self.check_moves()
+        elif path.upper() == "HELP":
+            if self.instance.help > 0:
+                self.use_help()
+            else:
+                print("You do not have any more help left.")
         else:
             print("Wrong way!")
             self.score-=1
             self.instance.player_hurt()
+    
+    def check_moves(self):
+        if directions[0] != 'END':
+            print("You have ", len(directions) - 1, " more directions to go")
+            
+    def use_help(self):
+        print("The correct path is: ", directions[0])
+        self.instance.help -= 1
             
 
 player1 = Player('Bob')
