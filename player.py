@@ -1,3 +1,6 @@
+import random
+
+
 class Player:
     """
     A player in the maze game
@@ -12,7 +15,8 @@ class Player:
         self.name = name
         self.health = 3
         self.help = 3
-    
+        
+# (Jalen)
     def player_hurt(self):
         """
         Player will take damage if they take a wrong turn in the maze
@@ -33,6 +37,7 @@ class Player:
         if self.health == 0:
             print("You're out of health!")
             exit()
+            
     def check_name(self):
         """
         Checks if the name the player uses is 3 characters, if not game will 
@@ -45,16 +50,32 @@ class Player:
 
 filename = 'directions.txt'
 
-#Maybe create a function that is generating random size list and directions
-directions = ['LEFT','RIGHT','FORWARD','RIGHT','FORWARD','RIGHT','LEFT','LEFT',
-              'RIGHT','LEFT','END']
+# Chooses from a random list of options and puts it in a list (Jalen)
+directions1 = ['LEFT','RIGHT','FORWARD']
+count = 0
+directions = ['END']
 
+while count < 10:
+    directions.insert(0,random.choice(directions1))
+    count += 1
+     
+    
+    
         
 class Maze():
+    """
+    Creates the maze that the player has to go through 
+    
+    Atrributes:
+        instance (int): creates an instance for the player
+        path (str): the direction that a user chooses going on the path
+    """
+    
     def __init__(self, instance):
         self.instance = instance
         self.score = 0
-      
+
+# (Jalen)      
     def turns(self):
         """
         asks the player which direction it wants to go
