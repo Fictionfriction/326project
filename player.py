@@ -3,15 +3,25 @@ import random
 
 class Player:
     """
+    Class created by Mitchel
     A player in the maze game
     
     Atrributes:
         name (str): the player's name
         health (int): the health that a player has to get through the maze
         score (int): the player's score for completing the maze
+        help (int): the player's amount of helps they have to use to assist
+        them to get through the maze
     """
     
     def __init__(self, name):
+        """
+        Created by Mitchel
+        Creates a Player object with attributes of name, health and help
+        Args:
+            Self (object): represents the player object
+            name (str): the name that will represent the player
+        """
         self.name = name
         self.health = 3
         self.help = 3
@@ -85,8 +95,9 @@ class Maze():
             self.check_path(user_movement)
         
     def check_path(self, path):
-        """Checks whether the user chose the right path or not in the maze
-
+        """
+        Worked on by ____ and Mitchel 
+        Checks whether the user chose the right path or not in the maze
         Args:
             path ([string]): the direction the user chose
         """
@@ -108,10 +119,23 @@ class Maze():
             self.instance.player_hurt()
     
     def check_moves(self):
+        """
+        Done by Mitchel
+        Checks how many turns are left in the maze
+        Args:
+            Self (object): Represents the maze class object
+        """
         if directions[0] != 'END':
             print("You have ", len(directions) - 1, " more directions to go")
             
     def use_help(self):
+        """
+        Done by Mitchel
+        Allows the user to see the next correct move in the maze and also
+        decreases the amount of help that the player has
+        Args:
+            Self (object): Represents the maze class object.
+        """
         print("The correct path is: ", directions[0])
         self.instance.help -= 1
             
