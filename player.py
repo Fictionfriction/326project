@@ -34,13 +34,14 @@ class Player:
         self.health = self.health - 1
         self.check_health()
         print(f"you now have {self.health} health left!")
-    
+# (Jason and ___)
     def player_health(self):
         """
         Player will gain health depending on if they meet a certain condition
         """
-        self.health = self.health + 1
-        
+        print("You got three in a row! +1 health.")
+        self.health += 1
+# (Jason) 
     def check_health(self):
         """Check if player has lost all of their health
         """
@@ -84,6 +85,7 @@ class Maze():
     def __init__(self, instance):
         self.instance = instance
         self.score = 0
+        self.count = 0
 
 # (Jalen)      
     def turns(self):
@@ -93,10 +95,10 @@ class Maze():
         while True:
             user_movement = input(f"Hello {self.instance.name}, which way would you like to go? ").upper()
             self.check_path(user_movement)
-        
+    
     def check_path(self, path):
         """
-        Worked on by ____ and Mitchel 
+        Worked on by Jason and Mitchel 
         Checks whether the user chose the right path or not in the maze
         Args:
             path ([string]): the direction the user chose
@@ -108,6 +110,9 @@ class Maze():
             del directions[0]
             self.score+=1
             self.check_moves()
+            self.count += 1
+            if self.count == 3:
+                self.instance.player_health()
         elif path.upper() == "HELP":
             if self.instance.help > 0:
                 self.use_help()
@@ -117,6 +122,7 @@ class Maze():
             print("Wrong way!")
             self.score-=1
             self.instance.player_hurt()
+            self.count = 0
     
     def check_moves(self):
         """
