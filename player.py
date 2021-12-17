@@ -34,7 +34,7 @@ class Player:
         self.health = self.health - 1
         self.check_health()
         print(f"you now have {self.health} health left!")
-# (Jason and ___)
+# (Jason and Mitchel)
     def player_health(self):
         """
         Player will gain health depending on if they meet a certain condition
@@ -72,14 +72,15 @@ while count < 10:
      
     
     
-        
+
 class Maze():
     """
     Creates the maze that the player has to go through 
     
     Atrributes:
         instance (int): creates an instance for the player
-        path (str): the direction that a user chooses going on the path
+        score (int): player's score
+        count (int): correct answer streak
     """
     
     def __init__(self, instance):
